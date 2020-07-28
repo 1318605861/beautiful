@@ -1,0 +1,41 @@
+*{margin: 0;padding: 0;}
+ul,ol{list-style: none;}
+img{display: block;}
+a{text-decoration: none;color: black;}
+input,a,button{outline:none;}
+.l{float: left;}
+.r{ float: right;}
+
+
+.headnav{ width: auto; height: 50px;position: relative;border-bottom:1px solid  black; background-color: rgba(192, 192, 192, 0.5);}
+.logo{width: 163px; height: 50px; cursor: pointer;}
+.headnav_middle{width: 340px; height: 50px;position: absolute; margin-left:50%; left: -170px;}
+.title{width: 150px; height: 50px; font-size: 25px; margin-right: 0px; line-height: 50px;}
+.headnav_right{width: 490px;height: 50px; line-height: 50px;}
+.search{ width: 220px;height: 28px; border-radius: 16px 0 0 16px; border:1px  solid black;margin-top: -5px; text-indent:10px;
+    border-right: none;}
+.user_list{font-size: 15px; width:220px; height: 50px; line-height: 50px;text-align: center;}
+.user_list a{margin-right: 12px; }
+
+
+.icon-chazhao{width: 25px;height: 30px;border: 1px solid black; position: relative; top: 1px;border-left: none;
+    background-color: white;border-radius: 0 16px 16px 0;cursor: pointer; font-size: 17px;}
+
+#tbody{width: 1210px;height:620px ;margin: 30px auto;}
+#tbody_l{ width: 998px; height: 620px; position: relative; overflow: hidden; border-radius: 10px;}
+#imgList{ list-style: none; position: absolute;left: 0px;}
+#imgList li{ float: left;}
+#imgList li img{width: 998px;height: 620px;}
+#change_point{ position: absolute;  bottom: 15px;    }
+#change_point a{  float: left;  width: 15px;height: 15px; border-radius: 50%; background-color: white; margin: 0 5px;opacity: 0.5;}
+#change_point a:hover{ background-color: black; }
+
+#tbody_r{ width: 200px;height: 618px;  border: 1px solid gray;border-radius: 10px;}
+#xiaoHui{width: 130px;height: 130px; margin: 25px auto 0 auto;}
+#xiaoHui img{width: 100%;height: 100%;}
+#tbody_r h1{text-align: center;margin-top: 25px;}
+#tbody_r p{text-indent: 2em;font-size: 18px;}
+
+a:hover{color: crimson;}
+
+

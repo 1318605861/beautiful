@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="ico" href="/img/aa21.ico" type="images/x-ico"/>
+    <title>点滴生活</title>
+    <link rel="stylesheet" href="css/iconfont.css" >
+    <link rel="stylesheet" href="css/common.css" type="text/css"/>
+    <script src="js/jquery-1.12.4.js"></script>  
+    <script src="js/lifesend.js"></script>
+    <style>
+        .life{
+            color: red;
+        }
+        .img{
+            width: auto;
+            height: 150px;
+            background-image: url(img/life3.jpg) ;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .content{
+            width: 1020px;
+            height: 1200px;
+            margin: 0 auto;
+        }
+        .left{
+            width: 150px;
+            height: 669px;
+            background-image: url(img/left.png) ;
+        }
+        .mid{
+            width: 650px;
+            height: 1200px;
+
+        }
+        .right{
+            width: 220px;
+            height: 150px;
+            background-image: url(img/user.png) ;
+            background-repeat: no-repeat;
+            background-size: 100%;
+
+        }
+        .top{
+            width: 650px;
+            height: 180px;
+            background-image: url(img/comment.png)  ;
+            background-size: cover;
+        }
+        .comment{
+            width: 621px;
+            height: 86px;
+            margin-top: 45px;
+            margin-left: 15px;
+            resize: none;
+            outline: none;
+            }
+        .send{
+            width: 88px;
+            height: 32px;
+            margin-top: 3px;
+            margin-left: 550px;
+            border: none;
+            background: #fd8040;
+            color: white;
+            cursor: pointer;
+            }
+        .messageList{
+            width: 645px;
+            background: white;
+            float: left;
+            margin-left: 5px;
+        }
+        .messageList>.info{
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+        }
+        .info>.infoText{
+            line-height: 25px;
+            margin-bottom: 10px;
+        }
+        .info>.infoOperation{
+            width: 100%;
+            overflow: hidden;
+        }
+        .infoOperation>.infoTime{
+            float: left;
+            font-size: 13px;
+            color: #ccc;
+        }
+        .infoOperation>.infoHandle{
+            float: right;
+            font-size: 13px;
+        }
+        .infoHandle>a{
+            text-decoration: none;
+            color: #ccc;
+            background: url("img/icons.png") no-repeat 0 0;
+            padding-left: 25px;
+            margin-left: 10px;
+        }
+        .infoHandle>a:nth-child(2){
+            background-position: 0 -17px;
+        }
+        .infoHandle>a:nth-child(3){
+            background-position: 0 -33px;
+        }
+    </style>
+
+</head>
+<body οnlοad="load_data()">
+    <div class="headnav">
+        <div >
+            <a href="index.html"><img class="logo l" src="img/logo.jpg" alt="美丽校园" title="美丽校园" > </a>
+        </div>
+        <div class="headnav_middle l">
+            <div class="title l">
+                <a href="life.html" class="life l"><div class="iconfont icon-yangguang l "></div> 校园生活圈</a>
+            </div>
+            <div class="title r">
+               <a href="study.html" class="r "> 校园学习圈 <div class="iconfont icon-zhishi r "></div></a>
+            </div>
+        </div>
+        <div class="headnav_right r">
+            <div class="l">
+                <input class="search" type="text" placeholder="今天你想了解什么呢?" title="今天你想了解什么呢?">  
+            </div>
+            <div class="l" id="sousuo" >
+               <button class="iconfont icon-chazhao"></button>
+            </div>
+            <div class="user_list r">
+                
+                <a class="login" href="psw_login.html" target="_blank">登录/注册</a>
+                <a class="user_list_sc" href="#">校圈</a>
+                <a class="user_list_sc"href="#">签到</a>
+                <a class="user_list_sc"href="#">历史</a>
+            </div>
+        </div>
+        
+    </div>
+    <div class="img">
+        
+    </div>
+    <div class="content">
+        <div class="left l">
+
+        </div>
+        <div class="mid l">
+            <div class="top">
+                <textarea class="comment"></textarea>
+                <input type="button" value="发布" class="send" disabled>
+            </div>
+            <div class="messageList"></div>
+        </div>
+        <div class="right l">
+
+        </div>
+    </div>
+
+</body>
+
+</html>

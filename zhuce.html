@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎注册</title>
+
+
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,ol{list-style: none;}
+        img{display: block;}
+        a{text-decoration: none;color: black;}
+        input,a,button{outline:none;}
+        .l{float: left;}
+        .r{float: right;}
+        .clear:after{content: ""; clear: both; display: block;}
+
+        #login_pic{width: 1520px;height: 754px; background-image: url(img/login2.png);background-size: 100% 100%;position: relative; }
+        #zhuce{width: 500px;height: 360px;background-color: white; background-color:rgb(255, 255, 255,0.6);
+                border-radius: 20px; position: absolute;top: 50%;left: 50%; margin-top: -175px;margin-left: -250px;}
+        #zhuce h2{text-align: center;margin-top: 5px;margin-bottom: 5px;}
+        #zhuce div{width: 480px;height: 30px;margin-right: 30px;margin-top: 10px; line-height: 30px;}
+        input{height: 20px;}
+        #btn1{margin-left: 5px;margin-top: 2px; border: 1px solid black;cursor: pointer;float: right; display: block;}
+        #btn1:hover{background-color: coral;}
+        #btn2{width: 150px;height: 30px;font-size: 15px;line-height: 30px; cursor:  pointer;border: none;border-radius: 5px;
+            margin: 10px 175px 0px 175px;}
+        .checkbox{width: 14px;height: 14px;}
+        a{color: blue;}
+        .error{color: red;  }
+        .user_info{display: block;float: left;margin-left: 70px;width: 90px;}
+        .yanzhengma{display: block;float: left;margin-top: 10px;}
+        .footer{margin-left: 135px;}
+        .no_use{pointer-events: none; background-color: black;cursor: not-allowed;}
+
+    </style>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+           //初始化隐藏错误信息
+            $("#usernameError").hide();
+            $("#userpasswordError").hide();
+            $("#userpassword1Error").hide();
+            $("#userphoneError").hide();
+            $("#useremailError").hide();
+            var a =false;
+            var b =false;
+            var c =false;
+            var d =false;
+            var e =false;
+             //username验证	
+            $("#username").focus(function(){
+                $("#username").css("background-color", "#FFFFCC");
+            })
+            $("#username").blur(function(){
+                $("#username").css("background-color", "#FFFFFF");
+            })
+            $("body").keyup(function () {
+                
+                var regtitle = /^[a-zA-Z][a-zA-Z0-9_]*$/;
+                var uname = $("#username").val();
+                $("#username").css("background-color", "white");
+                if (uname.length <= 0 || !regtitle.test(uname)) {
+                  //  $("#usernameRight").hide();
+                    $("#usernameError").show();
+                    a=false;
+                    $("#btn2").css("background-color", "#FFFFFF")    
+                   $("#btn2").prop("disabled","true");
+                } else {
+                  //  $("#usernameRight").show();
+                    $("#usernameError").hide();
+                    a=true;
+                    if(a&&b&&c&&d&&e){ $("#btn2").removeProp("disabled");$("#btn2").css("background-color", "#FF7F00")}
+                    //name_state=true;
+                }
+            });
+
+            //password验证	
+            $("#userpassword").focus(function(){
+                $("#userpassword").css("background-color", "#FFFFCC");
+            })
+            $("#userpassword").blur(function(){
+                $("#userpassword").css("background-color", "#FFFFFF");
+            })
+            $("body").keyup(function () {
+               
+                var upassword = $("#userpassword").val();
+                $("#userpassword").css("background-color", "white");
+                if (upassword.length > 5 && upassword.length < 17) {
+                   // $("#userpasswordRight").show();
+                    $("#userpasswordError").hide();
+                    b=true;
+                    if(a&&b&&c&&d&&e){ $("#btn2").removeProp("disabled");$("#btn2").css("background-color", "#FF7F00")}
+                } else {
+                   // $("#userpasswordRight").hide();
+                    $("#userpasswordError").show();
+                    b=false;
+                    $("#btn2").css("background-color", "#FFFFFF")    
+                   $("#btn2").prop("disabled","true");
+                   // psw_state=true;
+                }
+            });
+            //password1验证
+            $("#userpassword1").focus(function(){
+               $("#userpassword1").css("background-color", "#FFFFCC");
+            })
+            $("#userpassword1").blur(function(){
+                $("#userpassword1").css("background-color", "#FFFFFF");
+            })
+            $("body").keyup(function () {
+                
+                var upassword = $("#userpassword").val();
+                var upassword1 = $("#userpassword1").val();
+                $("#userpassword1").css("background-color", "white");
+                if (upassword1 != upassword || upassword1=="") {
+                 //   $("#userpassword1Right").hide();
+                    $("#userpassword1Error").show();
+                    c=false;
+                    $("#btn2").css("background-color", "#FFFFFF")    
+                   $("#btn2").prop("disabled","true");
+                } else {
+                  //  $("#userpassword1Right").show();
+                    $("#userpassword1Error").hide();
+                    c=true;
+                    if(a&&b&&c&&d&&e){ $("#btn2").removeProp("disabled");$("#btn2").css("background-color", "#FF7F00")}
+                  //  psw2_state=true;
+                }
+            });
+            //userphone验证	
+            $("#userphone").focus(function(){
+               $("#userphone").css("background-color", "#FFFFCC");
+            })
+            $("#userphone").blur(function(){
+                $("#userphone").css("background-color", "#FFFFFF");
+            })
+            $("body").keyup(function () {
+               
+                var regphone = /^(13[0-9]|15[0-9]|18[0-9]|16[0-9])\d{8}$/;
+                var uphone = $("#userphone").val();
+                $("#userphone").css("background-color", "white");
+                if (uphone.length <= 0 || !regphone.test(uphone)) {
+                  //  $("#userphoneRight").hide();
+                    $("#userphoneError").show();
+                    d=false;
+                   $("#btn2").prop("disabled","true"); 
+                   $("#btn2").css("background-color", "#FFFFFF")    
+                } else {
+
+                 //   $("#userphoneRight").show();
+                    $("#userphoneError").hide();
+                    d=true;
+                    if(a&&b&&c&&d&&e){ $("#btn2").removeProp("disabled");$("#btn2").css("background-color", "#FF7F00")}
+                  //  phone_state=true;
+
+                }
+            });
+            //usereamil验证	
+            $("#useremail").focus(function(){
+                $(".useremail").css("background-color", "#FFFFCC");
+            })
+            $("#useremail").blur(function(){
+                $("#useremail").css("background-color", "#FFFFFF");
+            })
+            $("body").keyup(function () {
+                
+                  var regemail = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+                var uemail = $(".useremail").val();
+                $(".useremail").css("background-color", "white");
+                if (uemail.length <= 0 || !regemail.test(uemail)) {
+                  //  $("#useremailRight").hide();
+                    $("#useremailError").show();
+                    e=false;
+                   $("#btn2").prop("disabled","true");   
+                   $("#btn2").css("background-color", "#FFFFFF")            
+                } else {
+                  //  $("#useremailRight").show();
+                    $("#useremailError").hide();
+                    e=true;
+                    if(a&&b&&c&&d&&e){ $("#btn2").removeProp("disabled");$("#btn2").css("background-color", "#FF7F00")}
+                   
+                  //  email_state=true;
+                }
+            });
+
+
+
+        });
+</script>
+</head>
+
+<body>
+    <div id="login_pic">
+        <div id="zhuce">
+            <h2>欢迎注册</h2>
+            <div >
+                <span class="user_info">用户名：</span> 
+                <input type="text" id="username" placeholder="请输入用户名">
+                <span class="error" id="usernameError"> 用户名格式不正确</span>
+            </div>
+            <div>
+               <span class="user_info"> 手机号：</span>
+                <input type="text" id="userphone" placeholder="请输入手机号">
+                <span class="error" id="userphoneError"> 手机号码格式不正确</span>
+            </div>
+            <div>
+                <span class="user_info">邮箱：</span> 
+                <input id="email" type="text" class="useremail"  placeholder="请输入邮箱">
+                <span class="error" id="useremailError"> 邮箱格式不正确</span>
+            </div>
+            <div>
+                <span class="user_info">设置密码：</span>
+                <input type="password" id="userpassword" placeholder="请输入密码">
+                <span class="error" id="userpasswordError"> 密码需6-16位</span>
+            </div>
+            <div>
+               <span class="user_info"> 确认密码：</span>
+                <input type="password" id="userpassword1" placeholder="请再次输入密码">
+                <span class="error" id="userpassword1Error"> 两次密码不一致</span>
+            </div>
+            <span class="yanzhengma">
+               <span class="user_info"> 验证码：</span>
+                <input type="text" placeholder="请输入验证码">
+                <button id="btn1">获取验证码</button>
+            </span>
+            
+            <button id="btn2" disabled=true>立即注册</button>
+            <div  class="footer">
+                <input type="checkbox" class="checkbox" checked>
+                我已阅读并接受<a href="yonhuxieyi.html" target="_blank">《用户协议》</a> 
+            </div>
+
+           
+
+        </div>
+    </div> 
+    
+</body>
+</html>

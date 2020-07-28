@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎登陆</title>
+
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,ol{list-style: none;}
+        img{display: block;}
+        a{text-decoration: none;color: black;}
+        input,a,button{outline:none;}
+        .l{float: left;}
+        .r{float: right;}
+        .clear:after{content: ""; clear: both; display: block;}
+
+        #login_pic{width: 1520px;height: 754px; background-image: url(img/login2.png);background-size: 100% 100%;position: relative; }
+        #login{width: 300px;height: 350px;background-color: white; background-color:rgb(255, 255, 255,0.6);
+                border-radius: 20px; position: absolute;top: 50%;left: 50%; margin-top: -175px;margin-left: -150px;}
+        .header_l{margin:20px 0 0 30px;border-bottom: 3px gray solid;cursor: pointer;}
+        .header_r{margin:20px 30px 0 0;border-bottom: 3px crimson solid;cursor: pointer;}
+        .name{width: 300px; height: 50px; margin-top: 20px;line-height: 50px;}
+        .icon-wode1{width: 30px;height: 40px; margin-left: 32px;}
+        .name input{width: 200px;height: 28px; margin-top:6px; text-indent: 5px;}
+        .a123{width: 300px; height: 50px; margin-top: 20px;line-height: 50px;}
+        .icon-yanzhengma{width: 30px;height: 40px; margin-left: 30px;font-size: 30px; margin-top: -2px;}
+        .a123 input{width: 200px;height: 28px; margin-top:6px; text-indent: 5px;margin-left: 2px;}
+        #btn1{margin-left: 196px;border: 1px solid black;cursor: pointer;}
+        #btn1:hover{background-color: coral;}
+        #btn2{width: 200px;height: 40px;margin:8px 50px 0 50px; font-size: 20px; background-color: coral; border-radius: 8px;
+            cursor: pointer;border: none;}
+        #btn2:hover{background-color: crimson;}
+        .other_login{width: 300px; height: 40px;}
+        .icon-weibo{margin: 20px 0 0 35px; font-size: 15px;}
+        .icon-weixin{margin: 20px 0 0 10px; font-size: 15px;}
+        .footer{font-size: 13px; margin: 15px 30px 20px 0;}
+        .footer a{margin-right: 10px;}
+    </style>
+
+</head>
+<body>
+    <div id=login_pic>
+        <div id="login">
+            <div id="color">
+                <div class="clear"> 
+                    <h2 class="header_l l"><a href="psw_login.html">密码登录</a> </h2>
+                    <h2 class="header_r r"><a href="number_login.html">短信登录</a> </h2>
+                </div>
+                <div class="name">
+                    <div class="iconfont icon-wode1 l"></div>
+                    <input type="text" placeholder="邮箱/手机号" class="l">   
+                </div>
+                <div class="a123">
+                    <div class="iconfont icon-yanzhengma l"></div>
+                    <input type="password" placeholder="请输入验证码" class="l">
+                </div>
+                <button id="btn1">获取验证码</button>
+                <button id="btn2">登录</button>
+                <div class="other_login">
+                    <div class="iconfont icon-weibo l"><a href="#"> 微博登录</a></div> 
+                    <div class="iconfont icon-weixin l"><a href="#">微信登录</a></div> 
+                </div>
+                <div class="footer r">
+                    <a href="wangjimima.html" target="_blank">忘记密码</a>
+                    <a href="zhuce.html" target="_blank">免费注册</a>
+                </div>
+            </div>
+
+        </div>
+    </div> 
+    
+</body>
+</html>

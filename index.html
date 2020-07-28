@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="ico" href="/img/aa21.ico" type="images/x-ico"/>
+    <title>美丽校园</title>
+    <link rel="stylesheet" href="css/iconfont.css" >
+    <link rel="stylesheet" href="css/common.css" type="text/css"/>  
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByName("imgA");
+            imgList.style.width = 998*imgArr.length+"px"; 
+            var change_point = document.getElementById("change_point");
+            var tbody_l = document.getElementById("tbody_l");
+            change_point.style.left = (tbody_l.offsetWidth - change_point.offsetWidth)/2 + "px";
+            var index = 0;
+            var allA = document.getElementsByName("change_point_a");
+            allA[index].style.backgroundColor = "black";
+            for(var i=0; i<allA.length ; i++){
+                allA[i].num = i;
+                allA[i].onclick = function(){
+                    clearInterval(timer);
+                    index = this.num;
+                    setA();
+                    move(imgList , "left" , -998*index , 300 , function(){
+                        autoChange();
+                    });
+                    
+                };
+            }   
+            //开启自动切换图片
+            autoChange();
+            
+            
+            //创建一个方法用来设置选中的a
+            function setA(){
+                
+                //判断当前索引是否是最后一张图片
+                if(index >= imgArr.length -1){
+                    //则将index设置为0
+                    index = 0;
+                    //此时显示的最后一张图片，而最后一张图片和第一张是一摸一样
+                    //通过CSS将最后一张切换成第一张
+                    imgList.style.left = 0;
+                }
+                
+                //遍历所有a，并将它们的背景颜色设置为红色
+                for(var i=0 ; i<allA.length ; i++){
+                    allA[i].style.backgroundColor = "";
+                }
+                
+                //将选中的a设置为黑色
+                allA[index].style.backgroundColor = "black";
+            };
+            
+            //定义一个自动切换的定时器的标识
+            var timer;
+            //创建一个函数，用来开启自动切换图片
+            function autoChange(){
+                
+                //开启一个定时器，用来定时去切换图片
+                timer = setInterval(function(){
+                    
+                    //使索引自增
+                    index++;
+                    
+                    //判断index的值
+                    index %= imgArr.length;
+                    
+                    //执行动画，切换图片
+                    move(imgList , "left" , -998*index , 100 , function(){
+                        //修改导航按钮
+                        setA();
+                    });
+                    
+                },5000);
+                
+            }
+            
+            
+            //页面刚加载的时候，开始判断，如果有用户名，就显示在页面上，如果没有用户名的话，就显示登录名称
+
+            function load_data() {
+
+                var theme = localStorage.getItem("username");
+
+                if (theme == null || theme == "") {
+
+                    $("#cue").show();
+
+                    $("#uname").html('');
+
+                } else {
+
+                    $("#cue").hide();
+
+                    $("#uname").html(theme);
+
+                }
+
+            }
+
+          //页面刚加载的时候，开始判断，如果有用户名，就显示在页面上，如果没有用户名的话，就显示登录名称
+
+        };
+        
+        
+    </script> 
+
+    <script>
+       
+    </script>
+
+</head>
+<body οnlοad="load_data()">
+    <div class="headnav">
+        <div >
+            <a href="index.html"><img class="logo l" src="img/logo.jpg" alt="美丽校园" title="美丽校园" > </a>
+        </div>
+        <div class="headnav_middle l">
+            <div class="title l">
+                <a href="life.html" class=" l"><div class="iconfont icon-yangguang l "></div> 校园生活圈</a>
+            </div>
+            <div class="title r">
+               <a href="study.html" class=" r"> 校园学习圈 <div class="iconfont icon-zhishi r "></div></a>
+            </div>
+        </div>
+        <div class="headnav_right r">
+            <div class="l">
+                <input class="search" type="text" placeholder="今天你想了解什么呢?" title="今天你想了解什么呢?">  
+            </div>
+            <div class="l" id="sousuo" >
+               <button class="iconfont icon-chazhao"></button>
+            </div>
+            <div class="user_list r">
+                
+                <a class="login" href="psw_login.html" target="_blank">登录/注册</a>
+                <a class="user_list_sc" href="#">校圈</a>
+                <a class="user_list_sc"href="#">签到</a>
+                <a class="user_list_sc"href="#">历史</a>
+            </div>
+        </div>
+        
+    </div>
+    <div id="tbody">
+        <div id="tbody_l" class="l">
+            <ul id="imgList">
+                <li><img name="imgA" src="img/xiamen1.jpg"/></li>
+                <li><img name="imgA" src="img/xiamen2.jpg"/></li>
+                <li><img name="imgA" src="img/xiamen3.jpg"/></li>
+                <li><img name="imgA" src="img/xiamen4.jpg"/></li>
+                <li><img name="imgA" src="img/xiamen5.jpg"/></li>
+                <li><img name="imgA" src="img/xiamen1.jpg"/></li>
+            </ul>
+            <div id="change_point">
+                <a name="change_point_a" href="javascript:;"></a>
+                <a name="change_point_a" href="javascript:;"></a>
+                <a name="change_point_a" href="javascript:;"></a>
+                <a name="change_point_a" href="javascript:;"></a>
+                <a name="change_point_a" href="javascript:;"></a>
+            </div>
+        </div>
+        <div id="tbody_r" class="r">
+            <div id="xiaoHui"><img src="img/xiamenxiaohui.jpg" alt="厦门大学校徽"></div>
+            <h1>厦门大学</h1>
+            <p> 
+                厦大本部位于厦门岛南部，校本部园外临白城海滩，内拥芙蓉湖，依山傍海，景色相得益彰。嘉庚楼前悠然的棕榈树林荫道，俏丽的芙蓉湖，深邃情人谷，校园的每一个角落充满着粉嫩的绿、惊艳的红。漳州校区的建筑新颖，现代化的设施让学子在学习之外享受到体贴的人性化服务。厦门大学由此被称为：山海花园。
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
